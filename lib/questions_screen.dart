@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/answer_button.dart';
 import 'package:quiz_app/data/question_data.dart';
 import 'package:quiz_app/models/questions.dart';
+import 'package:quiz_app/quiz_text.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen(this.onSelectAnswer, {super.key});
@@ -60,8 +61,8 @@ class _QuestionsScreen extends State<QuestionsScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(currentQuestion.question,
-            style: GoogleFonts.courierPrime(fontSize: 24, fontWeight: FontWeight.bold),
+            QuizText(currentQuestion.question,
+            textStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
