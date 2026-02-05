@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:quiz_app/quiz_text.dart';
+import 'package:quiz_app/question_identifier.dart';
 
 class QuestionsSummary extends StatelessWidget {
   const QuestionsSummary(this.summaryData, {super.key});
@@ -19,18 +20,9 @@ class QuestionsSummary extends StatelessWidget {
               spacing: 5,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  backgroundColor: data['user_answer'] == data['correct_answer']
-                      ? Color.fromARGB(255, 1, 112, 51)
-                      : Color.fromARGB(255, 112, 1, 92),
-                  child: QuizText(
-                    ((data['question_index'] as int) + 1).toString(),
-                    textStyle: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                QuestionIdentifier(
+                  isCorrectAnswer: data['user_answer'] == data['correct_answer'],
+                  questionIndex: (data['question_index'] as int) + 1,
                 ),
                 Expanded(
                   child: Column(
